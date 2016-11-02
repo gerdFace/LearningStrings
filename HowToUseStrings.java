@@ -60,11 +60,13 @@ public class HowToUseStrings {
         String lastPart = out.substring(2);
         return firstPart.concat(word).concat(lastPart);
     }
+    
 //return 3 copies of last two letters of str
     public String extraEnd(String str) {
         String newStr = str.substring(Math.max(str.length() - 2, 0));
         return newStr.concat(newStr).concat(newStr);
-}
+    }
+
 /*return first two chars of a string --if less than 2 chars long return
     original string*/
     public String firstTwo(String str) {
@@ -78,5 +80,55 @@ public class HowToUseStrings {
     public String firstHalf(String str) {
         int firstPart = str.length() / 2;
         return str.substring(0, firstPart);
+    }
+
+/*given a string return a version without the first or last characters*/
+    public String withoutEnd(String str) {
+        int allButLast = str.length() - 1;
+
+        return str.substring(1, allButLast);
+    }
+
+/*given 2 strings, a and b, return short+long+short*/
+    public String comboString(String a, String b) {
+        int maybeShort = a.length();
+        int maybeLong = b.length();
+
+        if (maybeShort < maybeLong) {
+            return a + b + a;
+        }
+        return b + a + b;
+    }
+
+/*concatenate 2 strings except omit the first char of each*/
+    public String nonStart(String a, String b) {
+        String oneNoFirstChar = a.substring(1);
+        String twoNoFirstChar = b.substring(1);
+
+        return oneNoFirstChar.concat(twoNoFirstChar);
+    }
+
+/*given a string, return a "rotated left 2" version where first two
+* chars are moved to the end*/
+    public String left2(String str) {
+        char firstChar = str.charAt(0);
+        char secondChar = str.charAt(1);
+        String noFirstTwoChars = str.substring(2);
+
+        return noFirstTwoChars + firstChar + secondChar;
+    }
+/*simpler solution:
+    public String left2(String str) {
+      return str.substring(2) + str.substring(0, 2);
+    }*/
+
+/*given a string, return a "rotated right 2" version where last two
+* chars are moved to the front*/
+    public String right2(String str) {
+        int lengthOfString = str.length();
+        int numberWithoutLastTwo = lengthOfString - 2;
+        String stringNoLastTwoChars = str.substring(0, numberWithoutLastTwo);
+
+        return str.substring(numberWithoutLastTwo, lengthOfString) + stringNoLastTwoChars;
     }
 }
