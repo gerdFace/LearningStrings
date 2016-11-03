@@ -131,4 +131,35 @@ public class HowToUseStrings {
 
         return str.substring(numberWithoutLastTwo, lengthOfString) + stringNoLastTwoChars;
     }
+
+/*given a string, return a string length 1 from the front, unless front is
+* false, then return string length 1 from its back*/
+    public String theEnd(String str, boolean front) {
+        int lastChar = str.length();
+        if (front) {
+            return str.substring(0, 1);
+        }
+        if (!front) {
+            return str.substring(lastChar -1);
+        }
+        return str;
+    }
+
+/*given a string, return a version without the first and last char of the
+* string. the string may be length 0*/
+    public String withouEnd2(String str) {
+        if (str.length() <= 2) {
+            return "";
+        }
+        return str.substring(1, str.length() -1);
+    }
+
+/*given a string of even length, return the middle two chars. string
+* length is at least 2*/
+    public String middleTwo(String str) {
+        int middleLeft = str.length() / 2 -1;
+        int middleRight = str.length() /2 + 1;
+
+        return str.substring(middleLeft, middleRight);
+    }
 }
