@@ -162,4 +162,36 @@ public class HowToUseStrings {
 
         return str.substring(middleLeft, middleRight);
     }
+
+/*return true if given string ends with "ly"*/
+    public boolean endsLy(String str) {
+        boolean endLy = str.endsWith("ly");
+        return endLy;
+    }
+
+/*given a string and an int n, return a string made of the first and last n chars
+* from the string. string length will be at least n*/
+    public String nTwice(String str, int n) {
+        int endOfString = str.length() - n;
+        String firstPart = str.substring(0, n);
+        String lastPart = str.substring(endOfString);
+
+        if (endOfString >= 0) {
+            return firstPart.concat(lastPart);
+        }
+        return str;
+    }
+
+/*given a string and an index, return a string length 2 starting at the
+* given index. if the index is too big or too small to define a string
+* length 2, use the first 2 chars. the string length will be at least 2*/
+    public String twoChar(String str, int index) {
+        int indexPlus2 = index + 2;
+        double twoLessStringLength = str.length() - 2;
+
+        if (index > 0 && index <= twoLessStringLength) {
+            return str.substring(index, indexPlus2);
+        }
+        return str.substring(0, 2);
+    }
 }
